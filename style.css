@@ -1,0 +1,164 @@
+* {
+    touch-action: pan-x pan-y;
+    overflow-x: hidden;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    color: #EEE;
+    background-color: #000;
+    max-width: 1200px;
+    margin: 0 auto;
+    user-select: none;
+}
+
+header {
+    color: #EEE;
+    background: linear-gradient(#000, #0004);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(1200px, 100vw);
+    height: 46px;
+    padding: 12px calc(50vw - 600px);
+    font-size: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 100;
+}
+header a {
+    position: relative;
+    color: #EEE;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 4px 20px;
+}
+header a::before {
+    content: "";
+    position: absolute;
+    background: #FFF3;
+    border-radius: 10px;
+    display: block;
+    width: 0;
+    height: 0;
+    margin: 15px calc(50% - 20px);
+    opacity: 0;
+    z-index: -1;
+    transition: .2s ease-in;
+}
+header a:hover::before {
+    width: 100%;
+    height: 100%;
+    margin: -8px -20px;
+    opacity: 1;
+    transition: .2s ease-out;
+}
+header > a {
+    height: 36px;
+}
+header > a::before {
+    margin: 19px calc(50% - 20px);
+}
+header > a:hover::before {
+    margin: -4px -20px;
+}
+header > a, header > button {
+    margin: 0 12px;
+}
+#header-links {
+    display: flex;
+}
+#header-links a {
+    color: #CCC;
+    height: 28px;
+    padding: 9px 20px 7px 20px;
+    font-size: 22px;
+}
+
+#title-background {
+    position: absolute;
+    left: calc(50vw - 800px);
+    top: calc(50vh - 415px);
+    width: 1600px;
+    height: 800px;
+    z-index: -1;
+    filter: blur(50px);
+}
+#title {
+    position: relative;
+    color: #0000;
+    background-image: linear-gradient(to right, #FF78A7 0%, #FF63E4 12.5%, #CE86FF 25%, #A39DFF 37.5%, #78ABFF 50%, #00B8FF 62.5%, #00C0D7 75%, #00C5B6 87.5%, #00CA85 100%);
+    background-size: 200%;
+    width: fit-content;
+    margin: calc(100vh / 2 - 60px) 0 80px 0;
+    font-weight: 400;
+    font-size: 70px;
+    z-index: 1;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.fancy-button {
+    position: relative;
+    color: #FFF;
+    background: #78ABFF;
+    /*background: #0000;
+    background-image: linear-gradient(to right, #FF78A7 0%, #FF63E4 12.5%, #CE86FF 25%, #A39DFF 37.5%, #78ABFF 50%, #00B8FF 62.5%, #00C0D7 75%, #00C5B6 87.5%, #00CA85 100%);
+    background-size: 200%;*/
+    border: none;
+    border-radius: 10px;
+    height: 46px;
+    padding: 0 36px;
+    font-size: 18px;
+    text-wrap: nowrap;
+    overflow: scroll;
+    z-index: 1;
+    cursor: pointer;
+}
+.fancy-button::before {
+    content: "";
+    position: absolute;
+    background: #000;
+    border-radius: 7px;
+    display: block;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    margin: -9.5px -33px;
+    z-index: -1;
+    transition: .2s ease-out;
+}
+.fancy-button:hover::before {
+    width: 0;
+    height: 0;
+    margin: 10px calc(50% - 33px);
+    opacity: 0;
+    transition: .2s ease-in;
+}
+
+#flying-cards {
+    max-width: 1022px;
+    margin-top: calc(70vh - 400px);
+}
+#flying-cards > div {
+    display: inline-block;
+    background: #ABE0;
+    border: 1px solid #ABE6;
+    border-radius: 25px;
+    outline: 0 solid #ABE3;
+    width: 250px;
+    height: 250px;
+    padding: 35px;
+    margin: 8px;
+    overflow: hidden;
+    transition: .25s;
+    transition-property: background, outline-width;
+}
+#flying-cards > div:hover {
+    background: #ABE2;
+    outline-width: 12px;
+}
